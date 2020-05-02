@@ -111,14 +111,3 @@ services:
     container_name: "nginx"
     networks:
      - monitor-net
-
-  consul:
-    image: consul:1.4.2
-    ports:
-      - "8500:8500"
-    container_name: "consul"
-    volumes:
-      - ./consul/config:/config
-    command: "agent -dev -bind 0.0.0.0 -client 0.0.0.0 -ui -config-dir=/config -enable-script-checks"
-    networks:
-     - monitor-net
